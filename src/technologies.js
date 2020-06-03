@@ -1,4 +1,4 @@
-export const technologies = [
+export const rawTechnologies = [
   "SQLAlchemy ORM",
   "Redux",
   "Vanilla JS",
@@ -227,4 +227,4 @@ export const technologies = [
   "Polymorphism",
   "Phoenix",
   "DigitalOcean",
-];
+].sort();

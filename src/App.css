@@ -23,6 +23,14 @@ th {
   width: 125px;
 }
 
+input {
+  width: 100%;
+}
+
+tr th:first-child {
+  padding-right: 1em;
+}
+
 tr td:first-child {
   text-align: right;
   white-space: nowrap;

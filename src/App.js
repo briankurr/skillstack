@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { people } from "./people.js";
-import { technologies } from "./technologies.js";
+import { rawTechnologies } from "./technologies.js";
 import "./App.css";
 
 function App() {
+  const [technologies, setTechnologies] = useState(rawTechnologies);
+
+  function handleChange(event) {
+    const value = event.target.value.toLowerCase();
+    if (value === "") {
+      setTechnologies(rawTechnologies);
+    } else {
+      setTechnologies(
+        rawTechnologies.filter((rawTech) =>
+          rawTech.toLowerCase().includes(value)
+        )
+      );
+    }
+  }
+
   return (
     <div className="App">
       <table>
         <thead>
           <tr>
-            <th id="corner"></th>
+            <th>
+              <input
+                type="search"
+                placeholder="search technologies"
+                onChange={(event) => handleChange(event)}
+              />
+            </th>
             {Object.keys(people).map((person) => {
               return <th key={person}>{person}</th>;
             })}

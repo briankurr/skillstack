@@ -24,7 +24,13 @@ function App() {
                   return (
                     <td
                       key={`${person}-${tech}`}
-                      className={people[person][tech]}
+                      className={
+                        people[person][tech] === null
+                          ? "empty"
+                          : people[person][tech]
+                      }
+                      person={person}
+                      tech={tech}
                     ></td>
                   );
                 })}

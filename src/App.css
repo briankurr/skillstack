@@ -29,6 +29,11 @@ tr td:first-child {
   padding-right: 1em;
 }
 
+.empty:hover {
+  cursor: pointer;
+  background-color: #52565c;
+}
+
 .none {
   background-color: #e74c3c;
 }

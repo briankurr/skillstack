@@ -27,7 +27,7 @@ export const technologies = [
   "Performance Profiling",
   "TF - Computer vision",
   "TF - Time Series Modeling",
-  "TF - Natural Language Processing",
+  "TF - NLP",
   "React Native",
   "AWS S3",
   "AWS EC2",

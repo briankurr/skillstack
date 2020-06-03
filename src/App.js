@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { people } from "./people.js";
 import { rawTechnologies } from "./technologies.js";
+import logo from "./assets/logo.svg";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,33 @@ function App() {
     }
   }
 
+  const numericalSkillMap = {
+    none: 0,
+    0: "none",
+    junior: 1,
+    1: "junior",
+    intermediate: 2,
+    2: "intermediate",
+    advanced: 3,
+    3: "advanced",
+    teach: 4,
+    4: "teach",
+  };
+
+  let average = {};
+  technologies.map((tech) => {
+    return Object.keys(people).map((person) => {
+      if (people[person][tech] !== null) {
+        if (Object.keys(average).includes(tech)) {
+          average[tech] += numericalSkillMap[people[person][tech]];
+        } else {
+          average[tech] = numericalSkillMap[people[person][tech]];
+        }
+      }
+      return average;
+    });
+  });
+
   return (
     <div className="App">
       <table>
@@ -34,6 +62,9 @@ function App() {
             {Object.keys(people).map((person) => {
               return <th key={person}>{person}</th>;
             })}
+            <th>
+              <img alt="skiplist" src={logo} />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +86,13 @@ function App() {
                     ></td>
                   );
                 })}
+                <td
+                  className={
+                    numericalSkillMap[
+                      Math.round(average[tech] / Object.keys(people).length)
+                    ]
+                  }
+                ></td>
               </tr>
             );
           })}

@@ -1,5 +1,5 @@
 export const people = {
-  jon: {
+  cat: {
     "SQLAlchemy ORM": "none",
     Redux: "none",
     "Vanilla JS": "teach",

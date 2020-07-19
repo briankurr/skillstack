@@ -51,28 +51,24 @@ function App() {
     <div className="App">
       <table>
         <thead>
-          {window.screen.width <= 700 && (
-            <tr>
-              <th></th>
-              <th colSpan={Object.keys(people).length + 1}>
-                <input
-                  type="search"
-                  placeholder="search technologies"
-                  onChange={(event) => handleChange(event)}
-                />
-              </th>
-            </tr>
-          )}
           <tr>
-            <th>
-              {window.screen.width > 700 && (
-                <input
-                  type="search"
-                  placeholder="search technologies"
-                  onChange={(event) => handleChange(event)}
-                />
-              )}
+            <th></th>
+            <th colSpan={Object.keys(people).length + 1}>
+              <div id="legend"></div>
             </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th colSpan={Object.keys(people).length + 1}>
+              <input
+                type="search"
+                placeholder="search technologies"
+                onChange={(event) => handleChange(event)}
+              />
+            </th>
+          </tr>
+          <tr>
+            <th></th>
             {Object.keys(people).map((person) => {
               return <th key={person}>{person}</th>;
             })}
